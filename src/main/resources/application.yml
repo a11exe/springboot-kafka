@@ -1,0 +1,30 @@
+server:
+  port: 8080
+
+spring:
+  liquibase:
+    change-log: classpath:config/liquibase/changelog-master.xml
+  jpa:
+    show-sql: true
+    properties:
+      hibernate.jdbc.lob.non_contextual_creation: true
+    hibernate:
+      ddl-auto: validate
+      order_inserts: true
+      jdbc:
+        time_zone: UTC
+        lob.non_contextual_creation: true
+        batch_size: 1000
+  datasource:
+    url: jdbc:postgresql://localhost:5432/kafka-spring-boot
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+#  datasource:
+#    url: jdbc:postgresql://${POSTGRES_SERVER}:${POSTGRES_PORT}/${POSTGRES_DB}
+#    username: ${POSTGRES_USER}
+#    password: ${POSTGRES_PASSWORD}
+#    driver-class-name: org.postgresql.Driver
+  logging:
+    level:
+      com.alllexe.kafkademo: DEBUG

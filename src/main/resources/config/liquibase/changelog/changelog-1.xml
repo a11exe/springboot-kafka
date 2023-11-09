@@ -1,0 +1,22 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--Operation-->
+    <changeSet id="v1.0" author="Abramov_AV">
+        <createTable tableName="operation">
+            <column name="id" type="uuid" remarks="Uniq id">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="income_datetime" type="timestamp" remarks="Creation date time">
+                <constraints nullable="false"/>
+            </column>
+            <column name="comment" type="varchar(255)" remarks="Comment" />
+            <column name="status" type="varchar(255)" remarks="Status" />
+            <column name="complete_datetime" type="timestamp" remarks="Processed date time" />
+        </createTable>
+        <rollback>
+            <dropTable tableName="operation"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>
