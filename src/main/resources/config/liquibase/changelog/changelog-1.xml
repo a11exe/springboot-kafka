@@ -19,4 +19,16 @@
             <dropTable tableName="operation"/>
         </rollback>
     </changeSet>
+
+    <changeSet id="v2.0" author="Abramov_AV">
+        <createIndex tableName="operation" indexName="idx_operation_income_datetime">
+            <column name="income_datetime" />
+        </createIndex>
+        <createIndex tableName="operation" indexName="idx_operation_complete_datetime">
+            <column name="complete_datetime" />
+        </createIndex>
+        <createIndex tableName="operation" indexName="idx_operation_status">
+            <column name="status" />
+        </createIndex>
+    </changeSet>
 </databaseChangeLog>

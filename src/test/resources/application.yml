@@ -1,6 +1,6 @@
 server:
-  name: ${SERVER_NAME}
-  port: ${SERVER_PORT}
+  name: server name
+  port: 8080
 
 springdoc:
   swagger-ui:
@@ -10,10 +10,7 @@ springdoc:
 
 spring:
   kafka:
-#    bootstrap-servers: localhost:9092
-    bootstrap-servers: ${KAFKA_SERVER}:${KAFKA_PORT}
-    producer:
-      timeout.ms: 3000
+    bootstrap-servers: localhost:9092
   liquibase:
     change-log: classpath:config/liquibase/changelog-master.xml
   jpa:
@@ -27,15 +24,10 @@ spring:
         time_zone: UTC
         lob.non_contextual_creation: true
         batch_size: 1000
-#  datasource:
-#    url: jdbc:postgresql://localhost:5432/kafka-spring-boot
-#    username: postgres
-#    password: postgres
-#    driver-class-name: org.postgresql.Driver
   datasource:
-    url: jdbc:postgresql://${POSTGRES_SERVER}:${POSTGRES_PORT}/${POSTGRES_DB}
-    username: ${POSTGRES_USER}
-    password: ${POSTGRES_PASSWORD}
+    url: jdbc:postgresql://localhost:5433/kafka-spring-boot
+    username: postgres
+    password: postgres
     driver-class-name: org.postgresql.Driver
   logging:
     level:
